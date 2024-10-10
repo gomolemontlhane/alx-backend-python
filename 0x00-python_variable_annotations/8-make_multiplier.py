@@ -1,12 +1,18 @@
 #!/usr/bin/env python3
-"""
-Function that returns a list of tuples, each containing a sequence and its length.
-"""
+"""Contains a function that multiplies a float by multiplier"""
+from typing import Callable
 
-from typing import Iterable, Sequence, List, Tuple
 
-def element_length(lst: Iterable[Sequence]) -> List[Tuple[Sequence, int]]:
+def make_multiplier(multiplier: float) -> Callable[[float], float]:
+    """Multiplies a float by multiplier
+    Args:
+        multiplier (float): The multiplier
+    Returns:
+        A function that multiplies a float by multiplier
     """
-    Returns a list of tuples, each containing a sequence and its length.
-    """
-    return [(i, len(i)) for i in lst]
+
+    def multiplier_func(number: float) -> float:
+        """Multiplies a float by multiplier"""
+        return multiplier * number
+
+    return multiplier_func

@@ -1,10 +1,7 @@
 #!/usr/bin/env python3
-"""
-Function that adds two floats.
-"""
+"""Module that contains a single function that adds two integers."""
+
 
 def add(a: float, b: float) -> float:
-    """
-    Adds two floats and returns their sum.
-    """
+    """ Add two integers together """
     return a + b

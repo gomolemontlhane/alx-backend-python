@@ -1,10 +1,9 @@
-#!/usr/bin/env python3
 import asyncio
 import random
-from typing import Generator
+from typing import AsyncGenerator
 
-async def async_generator() -> Generator[float, None, None]:
-    """Loop 10 times, asynchronously wait 1 second, yield a random number between 0 and 10."""
+async def async_generator() -> AsyncGenerator[float, None]:
+    """Yields a random number between 0 and 10 every second for 10 seconds."""
     for _ in range(10):
-        await asyncio.sleep(1)
-        yield random.uniform(0, 10)
+        await asyncio.sleep(1)  # Asynchronously wait for 1 second
+        yield random.uniform(0, 10)  # Yield a random float between 0 and 10

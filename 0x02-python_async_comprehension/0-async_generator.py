@@ -1,22 +1,24 @@
 #!/usr/bin/env python3
 """
-A module containing an async generator function that yields
-a random float between 0 and 10 every second, 10 times.
+Module that contains a basic asynchronous coroutine
 """
 
 import asyncio
 import random
-from typing import AsyncGenerator
 
 
-async def async_generator() -> AsyncGenerator[float, None]:
+async def wait_random(max_delay: int = 10) -> float:
     """
-    Coroutine that yields a random float between 0 and 10
-    every second for 10 iterations.
+    Asynchronous coroutine that waits for a random
+    delay between 0 and max_delay
+    (inclusive) seconds and eventually returns it.
 
-    Yields:
-        float: Random float between 0 and 10.
+    Args:
+        max_delay (int): The maximum delay in seconds. Default is 10.
+
+    Returns:
+        float: The actual delay.
     """
-    for _ in range(10):
-        await asyncio.sleep(1)
-        yield random.uniform(0, 10)
+    delay = random.uniform(0, max_delay)
+    await asyncio.sleep(delay)
+    return delay

@@ -11,9 +11,8 @@ from typing import AsyncGenerator
 
 async def async_generator() -> AsyncGenerator[float, None]:
     """
-    async_generator - function to loop 10 times
-    Arguments:
-        no arguments
+    Coroutine that yields a random float between 0 and 10
+    every second for 10 iterations.
 
     Yields:
         float: Random float between 0 and 10.
